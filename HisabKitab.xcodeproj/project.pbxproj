@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		150AAA5626E7898100F552AD /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150AAA5526E7898100F552AD /* Reminder.swift */; };
 		15F72B1D26E644280013AC79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F72B1C26E644280013AC79 /* AppDelegate.swift */; };
 		15F72B1F26E644280013AC79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F72B1E26E644280013AC79 /* SceneDelegate.swift */; };
 		15F72B2126E644280013AC79 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F72B2026E644280013AC79 /* ReminderViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		150AAA5526E7898100F552AD /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		15F72B1926E644280013AC79 /* HisabKitab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HisabKitab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F72B1C26E644280013AC79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15F72B1E26E644280013AC79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		150AAA5326E7895600F552AD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				15F72B2026E644280013AC79 /* ReminderViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		150AAA5426E7896D00F552AD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				150AAA5526E7898100F552AD /* Reminder.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		15F72B1026E644280013AC79 = {
 			isa = PBXGroup;
 			children = (
@@ -56,9 +74,10 @@
 		15F72B1B26E644280013AC79 /* HisabKitab */ = {
 			isa = PBXGroup;
 			children = (
+				150AAA5426E7896D00F552AD /* Models */,
 				15F72B1C26E644280013AC79 /* AppDelegate.swift */,
 				15F72B1E26E644280013AC79 /* SceneDelegate.swift */,
-				15F72B2026E644280013AC79 /* ReminderViewController.swift */,
+				150AAA5326E7895600F552AD /* Controllers */,
 				15F72B2226E644280013AC79 /* Main.storyboard */,
 				15F72B2526E644290013AC79 /* Assets.xcassets */,
 				15F72B2726E644290013AC79 /* LaunchScreen.storyboard */,
@@ -140,6 +159,7 @@
 				15F72B2126E644280013AC79 /* ReminderViewController.swift in Sources */,
 				15F72B1D26E644280013AC79 /* AppDelegate.swift in Sources */,
 				15F72B1F26E644280013AC79 /* SceneDelegate.swift in Sources */,
+				150AAA5626E7898100F552AD /* Reminder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
