@@ -1,0 +1,67 @@
+//
+//  AddGoalViewController.swift
+//  HisabKitab
+//
+//  Created by Rabbia on 13/09/2021.
+//
+
+import UIKit
+var savingArray: [[String]] = []
+class AddGoalViewController: UIViewController, UITableViewDelegate , UITableViewDataSource{
+    
+    
+    @IBOutlet weak var goalDetails: UITextField!
+    @IBOutlet weak var goalAmount: UITextField!
+    @IBOutlet weak var goalDueDate: UIDatePicker!
+    @IBOutlet weak var goalsTable: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        goalsTable.delegate=self
+        goalsTable.dataSource=self
+
+        
+    }
+    
+    func dateConverter(dateInString: String) -> String  {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM dd,yyyy"
+
+        if let date = dateFormatterGet.date(from: dateInString) {
+            print(dateFormatterPrint.string(from: date))
+            return dateFormatterPrint.string(from: date)
+        } else {
+            return "There was an error decoding the string"
+        }
+    }
+    
+    @IBAction func finishButtonPressed(_ sender: Any) {
+        if goalDetails.text != ""  && goalAmount.text != ""
+        {
+            savingArray.append([goalDetails.text!,goalAmount.text!,dateConverter(dateInString: goalDueDate.date.description)])
+            goalDetails.text = nil
+            goalAmount.text = nil
+            goalsTable.reloadData()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadSavings"), object: nil)
+        }
+        
+       
+        print(savingArray)
+
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return savingArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel!.text = "\(savingArray[indexPath.row][2]): \(savingArray[indexPath.row][0]) (PKR \(savingArray[indexPath.row][1]))"
+        return cell
+    }
+
+}

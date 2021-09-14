@@ -25,10 +25,25 @@ class ReminderViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func addButtonPressed(_ sender: Any) {
         print( reminderDetails.text! , datePicker.date)
         
-        reminder.addNewReminder(text: reminderDetails.text!, date: datePicker.date.description)
+        reminder.addNewReminder(text: reminderDetails.text!, date: dateConverter(dateInString: datePicker.date.description))
         tableView.reloadData()
         
         
+    }
+    
+    func dateConverter(dateInString: String) -> String  {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM dd,yyyy h:mm a"
+
+        if let date = dateFormatterGet.date(from: dateInString) {
+            print(dateFormatterPrint.string(from: date))
+            return dateFormatterPrint.string(from: date)
+        } else {
+            return "There was an error decoding the string"
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
