@@ -37,7 +37,7 @@ class CreateBudgetViewController: UIViewController, UICollectionViewDelegate, UI
     
     
     @IBAction func finishPressed(_ sender: UIButton) {
-        if selectedCat && budgetTextField.text != nil {
+        if selectedCat && budgetTextField.text! != "" && budgetTextField.text!.isInt {
             
             let arrCount = budgetArray.count
             
@@ -59,10 +59,18 @@ class CreateBudgetViewController: UIViewController, UICollectionViewDelegate, UI
             
             budget.createBudget(catIndex: catInd, catAmount: Int(budgetTextField.text!)!)
             budgetTable.reloadData()
+            budgetTextField.text = nil
             collectionCategory.reloadData()
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
 
         }
+        else if budgetTextField.text!.isInt == false
+        {
+            let alert = UIAlertController(title: "Alert", message: "Add a number in Budget Amount", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+       
         
     }
     

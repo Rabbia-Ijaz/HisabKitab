@@ -71,7 +71,7 @@ class AddTransactionViewController: UIViewController, UICollectionViewDataSource
     @IBAction func finishPressed(_ sender: UIButton) {
         print(account.Balance)
         
-        if selectedCat && selectedTransType && transactionAmount.text != ""
+        if selectedCat && selectedTransType && transactionAmount.text! != "" && transactionAmount.text!.isInt
         {
             if transType == 1 //income
             {
@@ -85,6 +85,12 @@ class AddTransactionViewController: UIViewController, UICollectionViewDataSource
                 account.addExpense(expense: Int(transactionAmount.text!)!)
             }
             
+        }
+        
+        else if transactionAmount.text!.isInt == false{
+            let alert = UIAlertController(title: "Alert", message: "Add a number in Transaction Amount", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         
         collectionCategory.reloadData()

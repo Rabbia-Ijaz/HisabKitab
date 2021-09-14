@@ -717,6 +717,9 @@
                     <navigationItem key="navigationItem" title="Savings" id="fSv-3b-LYx"/>
                     <connections>
                         <outlet property="goalsTable" destination="aDe-u5-7vy" id="y5t-8b-oM7"/>
+                        <outlet property="savingsRemainingLabel" destination="6b8-VI-9YE" id="9RT-dL-WYo"/>
+                        <outlet property="savingsTotalAmountLabel" destination="f2A-9I-daj" id="rEB-zz-nRR"/>
+                        <outlet property="totalSavingProgressBar" destination="3pA-rM-qF5" id="tiY-9A-sAr"/>
                         <segue destination="nDl-5Q-GGF" kind="show" identifier="goToEachGoal" id="Rfs-2M-tdu"/>
                     </connections>
                 </viewController>
@@ -839,7 +842,7 @@
                                 <rect key="frame" x="20" y="262" width="374" height="34"/>
                                 <color key="textColor" red="0.0" green="0.25529476769999998" blue="0.25779415239999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fut-HR-BLc">
                                 <rect key="frame" x="20" y="212" width="54" height="30"/>
@@ -945,7 +948,7 @@
         <!--Saving Goal-->
         <scene sceneID="h9o-6p-vda">
             <objects>
-                <viewController id="nDl-5Q-GGF" userLabel="Saving Goal" sceneMemberID="viewController">
+                <viewController id="nDl-5Q-GGF" userLabel="Saving Goal" customClass="SavingGoalViewController" customModule="HisabKitab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RgF-fX-Fyd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1032,6 +1035,9 @@
                                         <integer key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="setGoalAsAchievedPressed:" destination="nDl-5Q-GGF" eventType="touchUpInside" id="dTc-ad-v4d"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="PKR 100" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="biE-Oi-lFh">
                                 <rect key="frame" x="20" y="394" width="374" height="34"/>
@@ -1052,6 +1058,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <action selector="finishButtonPressed:" destination="nDl-5Q-GGF" eventType="touchUpInside" id="5FN-GU-ctl"/>
                                     <action selector="finishButtonPressed:" destination="8CC-qH-hsE" eventType="touchUpInside" id="vbZ-34-9BF"/>
                                 </connections>
                             </button>
@@ -1094,6 +1101,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qbg-5z-SI9"/>
+                    <connections>
+                        <outlet property="goalProgressRemaining" destination="Kve-6F-PiK" id="V4o-CK-7rd"/>
+                        <outlet property="goalProgressTable" destination="C8y-Hy-bNv" id="Gb9-au-iWd"/>
+                        <outlet property="goalProgressTextBox" destination="biE-Oi-lFh" id="yfY-8T-mHh"/>
+                        <outlet property="savingGoalAmount" destination="hIn-LG-Mpj" id="AiN-th-782"/>
+                        <outlet property="savingGoalName" destination="cKl-h6-aSj" id="ico-5Z-FVT"/>
+                        <outlet property="savingGoalProgressBar" destination="YOR-11-PAD" id="6oN-jr-1xr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4x-aS-AX5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
