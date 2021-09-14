@@ -23,10 +23,18 @@ class ReminderViewController: UIViewController, UITableViewDelegate, UITableView
         // Do any additional setup after loading the view.
     }
     @IBAction func addButtonPressed(_ sender: Any) {
-        print( reminderDetails.text! , datePicker.date)
-        
-        reminder.addNewReminder(text: reminderDetails.text!, date: dateConverter(dateInString: datePicker.date.description))
-        tableView.reloadData()
+        if reminderDetails.text! != ""
+        {
+            reminder.addNewReminder(text: reminderDetails.text!, date: dateConverter(dateInString: datePicker.date.description))
+            tableView.reloadData()
+            reminderDetails.text = nil
+        }
+        else
+        {
+            let alert = UIAlertController(title: "Alert", message: "Add Reminder Details", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
         
         
     }
