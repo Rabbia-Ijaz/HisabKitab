@@ -13,7 +13,7 @@ class SavingsViewController: UIViewController, UITableViewDelegate , UITableView
     
     var currentIndex:Int = 0
     var amount:Int = 0
-    var remainingAmount:Int = 0
+    var addedAmount:Int = 0
     
     @IBOutlet weak var savingsTotalAmountLabel: UILabel!
     @IBOutlet weak var savingsRemainingLabel: UILabel!
@@ -35,16 +35,16 @@ class SavingsViewController: UIViewController, UITableViewDelegate , UITableView
     {
         var i = 0
         amount = 0
-        remainingAmount=0
-        while i<savingGoals.savingArray.count{
-            
+        addedAmount=0
+        while i<savingGoals.savingArray.count
+        {
             amount+=Int(savingGoals.savingArray[i][1])!
-            remainingAmount+=Int(savingGoals.savingArray[i][3])!
+            addedAmount+=Int(savingGoals.savingArray[i][3])!
             i+=1
         }
-        savingsRemainingLabel.text = "Remaining: \(remainingAmount)"
-        savingsTotalAmountLabel.text = "PKR \(remainingAmount)/\(amount)"
-        totalSavingProgressBar.progress = Float(Float(remainingAmount)/Float(amount))
+        savingsRemainingLabel.text = "Remaining: \(amount-addedAmount)"
+        savingsTotalAmountLabel.text = "PKR \(addedAmount)/\(amount)"
+        totalSavingProgressBar.progress = Float(Float(addedAmount)/Float(amount))
         self.goalsTable.reloadData()
     }
     
@@ -61,14 +61,15 @@ class SavingsViewController: UIViewController, UITableViewDelegate , UITableView
 
         }
     }
-    
+
+//MARK: - TableViewDelegateFunctions
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return savingGoals.savingArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel!.text = "\(savingGoals.savingArray[indexPath.row][2]): \(savingGoals.savingArray[indexPath.row][0]) (PKR \(savingGoals.savingArray[indexPath.row][3])/\(savingGoals.savingArray[indexPath.row][1]))"
+        cell.textLabel!.text = savingGoals.displayGoals(ind: indexPath.row)
         return cell
     }
     

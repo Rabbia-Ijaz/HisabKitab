@@ -6,129 +6,129 @@
 //
 
 import UIKit
-var budgetArray:[[String]] = []
-
+var budget = Budget()
+var category = Category()
 
 class CreateBudgetViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
-    var catBackground:[UIColor] = [UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) , UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)),UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)),UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)),UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ]
-    var catTint:[UIColor] = [UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) , UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)),UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)),UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)),UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ]
+    var selectedCat = false
+    var catInd:Int = 0
     
     @IBOutlet weak var collectionCategory: UICollectionView!
     @IBOutlet weak var budgetTable: UITableView!
     @IBOutlet weak var budgetTextField: UITextField!
     
-    var selectedCat = false
-    var catInd:Int = 0
-    //var account = Account()
-    var category = Category()
-    var budget = Budget()
-    
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         collectionCategory.delegate=self
         collectionCategory.dataSource=self
         budgetTable.delegate=self
         budgetTable.dataSource=self
         
-        // Do any additional setup after loading the view.
     }
     
-    
-    
-    @IBAction func finishPressed(_ sender: UIButton) {
-        if selectedCat && budgetTextField.text! != "" && budgetTextField.text!.isInt {
-            
-            let arrCount = budgetArray.count
-            
-            var catExist:Bool = false
-            var i = 0
-            while i<arrCount {
-                
-                if budgetArray[i][0] == category.categoryIcons[catInd]
-                {
-                    catExist = true
-                    let temp: Int = Int(budgetArray[i][1])! + Int(budgetTextField.text!)!
-                    budgetArray[i][1] = String(temp)
-                }
-                i+=1
-            }
-            if catExist == false {
-                budgetArray.append([category.categoryIcons[catInd] , budgetTextField.text!])
-            }
-            
-            budget.createBudget(catIndex: catInd, catAmount: Int(budgetTextField.text!)!)
-            budgetTable.reloadData()
-            budgetTextField.text = nil
-            collectionCategory.reloadData()
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-
-        }
-        else if budgetTextField.text!.isInt == false
+    func alerts(cat:Bool , amount:String)
+    {
+        if amount.isInt == false
         {
             let alert = UIAlertController(title: "Alert", message: "Add a number in Budget Amount", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
         }
-       
+        else if cat != true
+        {
+            let alert = UIAlertController(title: "Alert", message: "Choose category icon", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+    }
+
+    
+    @IBAction func finishPressed(_ sender: UIButton)
+    {
         
+        if selectedCat && budgetTextField.text! != "" && budgetTextField.text!.isInt
+        {
+            var catExist:Bool = false
+            var i = 0
+            while i < budget.budgetArray.count
+            {
+                if budget.budgetArray[i][0] == category.categoryIcons[catInd]
+                {
+                    catExist = true
+                    budget.addInBudget(ind: i, amount: budgetTextField.text!)
+                }
+                i+=1
+            }
+            if catExist == false
+            {
+                budget.appendInBudget(cat: category.categoryIcons[catInd], amount: budgetTextField.text!)
+            }
+            
+            budgetTable.reloadData()
+            collectionCategory.reloadData()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        }
+        else{            
+            alerts(cat: selectedCat, amount: budgetTextField.text!)
+        }
+        budgetTextField.text = nil
+        selectedCat = false
     }
     
-    //MARK - CollectionViewDelegateFunctions
-    
+// MARK: - CollectionViewDelegateFunctions
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
         return category.categoryIcons.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = catBackground[indexPath.row]
+        cell.backgroundColor = budget.catBackground[indexPath.row]
         if let icon = cell.viewWithTag(100) as? UIImageView{
             icon.image = UIImage.init(named: category.categoryIcons[indexPath.row])
-            icon.tintColor = catTint[indexPath.row]
+            icon.tintColor = budget.catTint[indexPath.row]
         }
         if let iconLabel = cell.viewWithTag(200) as? UILabel{
             iconLabel.text = category.categoryIcons[indexPath.row]
-            iconLabel.textColor = catTint[indexPath.row]
+            iconLabel.textColor = budget.catTint[indexPath.row]
         }
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    {
         let cell = collectionView.cellForItem(at: indexPath)
-        catBackground[indexPath.row] = #colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)
-        catTint[indexPath.row] = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        cell!.backgroundColor = catBackground[indexPath.row]
+        budget.iconColorState(state: "selected", ind: indexPath.row)
+        cell!.backgroundColor = budget.catBackground[indexPath.row]
       
         if let icon = cell!.viewWithTag(100) as? UIImageView{
             icon.image = UIImage.init(named: category.categoryIcons[indexPath.row])
-            icon.tintColor = catTint[indexPath.row]
+            icon.tintColor = budget.catTint[indexPath.row]
         }
         if let iconLabel = cell?.viewWithTag(200) as? UILabel{
-            iconLabel.textColor = catTint[indexPath.row]
+            iconLabel.textColor = budget.catTint[indexPath.row]
         }
         
-        catBackground[indexPath.row] = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        catTint[indexPath.row] = #colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)
+        budget.iconColorState(state: "released", ind: indexPath.row)
         catInd = indexPath.row
         selectedCat = true
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return budgetArray.count
-
+// MARK: - TableViewDelegateFunctions
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return budget.budgetArray.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
         let cell = tableView.dequeueReusableCell(withIdentifier: "budget", for: indexPath)
-        
-
-        cell.textLabel!.text = "\(budgetArray[indexPath.row][0]): \(budgetArray[indexPath.row][1])"
-        
+        cell.textLabel!.text = budget.displayBudget(ind: indexPath.row)
         return cell
     }
 }

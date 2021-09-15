@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1509DCED26F0C1E8000FDE85 /* SavingGoals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509DCEC26F0C1E8000FDE85 /* SavingGoals.swift */; };
+		1509DCF526F1B417000FDE85 /* HisabKitabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509DCF426F1B417000FDE85 /* HisabKitabTests.swift */; };
 		150AAA5626E7898100F552AD /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150AAA5526E7898100F552AD /* Reminder.swift */; };
 		1538539F26EA2C9600969864 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1538539E26EA2C9600969864 /* Budget.swift */; };
 		153853A126EA446500969864 /* CreateBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153853A026EA446500969864 /* CreateBudgetViewController.swift */; };
@@ -26,8 +27,21 @@
 		15F72B2926E644290013AC79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15F72B2726E644290013AC79 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1509DCF726F1B417000FDE85 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 15F72B1126E644280013AC79 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15F72B1826E644280013AC79;
+			remoteInfo = HisabKitab;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1509DCEC26F0C1E8000FDE85 /* SavingGoals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoals.swift; sourceTree = "<group>"; };
+		1509DCF226F1B417000FDE85 /* HisabKitabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HisabKitabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1509DCF426F1B417000FDE85 /* HisabKitabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HisabKitabTests.swift; sourceTree = "<group>"; };
+		1509DCF626F1B417000FDE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		150AAA5526E7898100F552AD /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		1538539E26EA2C9600969864 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		153853A026EA446500969864 /* CreateBudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBudgetViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +63,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1509DCEF26F1B417000FDE85 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15F72B1626E644280013AC79 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,6 +80,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1509DCF326F1B417000FDE85 /* HisabKitabTests */ = {
+			isa = PBXGroup;
+			children = (
+				1509DCF426F1B417000FDE85 /* HisabKitabTests.swift */,
+				1509DCF626F1B417000FDE85 /* Info.plist */,
+			);
+			path = HisabKitabTests;
+			sourceTree = "<group>";
+		};
 		150AAA5326E7895600F552AD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				15F72B1B26E644280013AC79 /* HisabKitab */,
+				1509DCF326F1B417000FDE85 /* HisabKitabTests */,
 				15F72B1A26E644280013AC79 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				15F72B1926E644280013AC79 /* HisabKitab.app */,
+				1509DCF226F1B417000FDE85 /* HisabKitabTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +151,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1509DCF126F1B417000FDE85 /* HisabKitabTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1509DCFB26F1B417000FDE85 /* Build configuration list for PBXNativeTarget "HisabKitabTests" */;
+			buildPhases = (
+				1509DCEE26F1B417000FDE85 /* Sources */,
+				1509DCEF26F1B417000FDE85 /* Frameworks */,
+				1509DCF026F1B417000FDE85 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1509DCF826F1B417000FDE85 /* PBXTargetDependency */,
+			);
+			name = HisabKitabTests;
+			productName = HisabKitabTests;
+			productReference = 1509DCF226F1B417000FDE85 /* HisabKitabTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		15F72B1826E644280013AC79 /* HisabKitab */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 15F72B2D26E644290013AC79 /* Build configuration list for PBXNativeTarget "HisabKitab" */;
@@ -145,6 +195,10 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					1509DCF126F1B417000FDE85 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 15F72B1826E644280013AC79;
+					};
 					15F72B1826E644280013AC79 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
@@ -164,11 +218,19 @@
 			projectRoot = "";
 			targets = (
 				15F72B1826E644280013AC79 /* HisabKitab */,
+				1509DCF126F1B417000FDE85 /* HisabKitabTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1509DCF026F1B417000FDE85 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15F72B1726E644280013AC79 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -182,6 +244,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1509DCEE26F1B417000FDE85 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1509DCF526F1B417000FDE85 /* HisabKitabTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		15F72B1526E644280013AC79 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,6 +275,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1509DCF826F1B417000FDE85 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15F72B1826E644280013AC79 /* HisabKitab */;
+			targetProxy = 1509DCF726F1B417000FDE85 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		15F72B2226E644280013AC79 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -225,6 +303,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1509DCF926F1B417000FDE85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = HisabKitabTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Rabbia.HisabKitabTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HisabKitab.app/HisabKitab";
+			};
+			name = Debug;
+		};
+		1509DCFA26F1B417000FDE85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = HisabKitabTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Rabbia.HisabKitabTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HisabKitab.app/HisabKitab";
+			};
+			name = Release;
+		};
 		15F72B2B26E644290013AC79 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -382,6 +498,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1509DCFB26F1B417000FDE85 /* Build configuration list for PBXNativeTarget "HisabKitabTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1509DCF926F1B417000FDE85 /* Debug */,
+				1509DCFA26F1B417000FDE85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		15F72B1426E644280013AC79 /* Build configuration list for PBXProject "HisabKitab" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

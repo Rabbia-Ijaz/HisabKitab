@@ -6,17 +6,14 @@
 //
 
 import UIKit
-var transactionArray:[[String]] = []
 var account = Account()
-var budget = Budget()
 
-class AddTransactionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource{
-    
-    
-    var catBackground:[UIColor] = [UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) , UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)),UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)),UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ,UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)),UIColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) ]
-    var catTint:[UIColor] = [UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) , UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)),UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)),UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ,UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)),UIColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)) ]
-    var transTypeBGColor = #colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)
-    var transTypeTint = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+class AddTransactionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource
+{
+    var selectedTransType = false
+    var transType = 0
+    var selectedCat = false
+    var catInd:Int = 0
     
     @IBOutlet weak var incomeButton: UIButton!
     @IBOutlet weak var expenseButton: UIButton!
@@ -24,87 +21,101 @@ class AddTransactionViewController: UIViewController, UICollectionViewDataSource
     @IBOutlet weak var collectionCategory: UICollectionView!
     @IBOutlet weak var transactionTable: UITableView!
     
-    
-    var selectedTransType = false
-    var transType = 0
-    var selectedCat = false
-    var catInd:Int = 0
-    
-    var category = Category()
-    
-    
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         collectionCategory.delegate=self
         collectionCategory.dataSource=self
         transactionTable.delegate=self
         transactionTable.dataSource=self
 
-        // Do any additional setup after loading the view.
     }
     
+    func alerts(cat:Bool , amount:String, transType:Bool)
+    {
+        if amount.isInt == false || amount == ""
+        {
+            let alert = UIAlertController(title: "Alert", message: "Add a number in transaction Amount", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+        else if transType != true
+        {
+            let alert = UIAlertController(title: "Alert", message: "Choose a transaction type", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+        else if cat != true
+        {
+            let alert = UIAlertController(title: "Alert", message: "Choose category icon", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+    }
     
     @IBAction func transactionTypeSelected(_ sender: UIButton) {
-        if sender.tag == 1 || sender.tag == 2 {
-            
+        if sender.tag == 1 || sender.tag == 2
+        {
             selectedTransType=true
             transType = sender.tag
             sender.layer.borderWidth = 1
             sender.layer.borderColor = #colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)
             sender.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            if sender.tag == 1 {
+            if sender.tag == 1
+            {
                 incomeButton.setTitleColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1), for: .normal)
             }
-            else{
+            else
+            {
                 expenseButton.setTitleColor(#colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1), for: .normal)
             }
-        
-                    
         }
-        else {
+        else
+        {
             print("enter the transaction type")
             selectedTransType=false
         }
         
     }
     
-    @IBAction func finishPressed(_ sender: UIButton) {
-        print(account.Balance)
+    @IBAction func finishPressed(_ sender: UIButton)
+    {
         
         if selectedCat && selectedTransType && transactionAmount.text! != "" && transactionAmount.text!.isInt
         {
             if transType == 1 //income
             {
-                transactionArray.append([category.categoryIcons[catInd],transactionAmount.text!])
+                account.transactionArray.append([category.categoryIcons[catInd],transactionAmount.text!])
                 account.addIncome(income: Int(transactionAmount.text!)!)
                 
             }
             else if transType == 2 //expense
             {
-                transactionArray.append([category.categoryIcons[catInd],"-\(transactionAmount.text!)"])
+                account.transactionArray.append([category.categoryIcons[catInd],"-\(transactionAmount.text!)"])
                 account.addExpense(expense: Int(transactionAmount.text!)!)
             }
             
+            collectionCategory.reloadData()
+            transactionTable.reloadData()
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         }
-        
-        else if transactionAmount.text!.isInt == false{
-            let alert = UIAlertController(title: "Alert", message: "Add a number in Transaction Amount", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        else{
+            alerts(cat: selectedCat, amount: transactionAmount.text!, transType: selectedTransType)
         }
+
         
-        collectionCategory.reloadData()
-        transactionTable.reloadData()
         incomeButton.backgroundColor = #colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)
         expenseButton.backgroundColor = #colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)
         incomeButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         expenseButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         transactionAmount.text = nil
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-        print (transactionArray )
+        selectedTransType = false
+        transType = 0
+        selectedCat = false
+
     }
     
-    //MARK - CollectionViewDelegateFunctions
+//MARK: - CollectionViewDelegateFunctions
     
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -115,14 +126,15 @@ class AddTransactionViewController: UIViewController, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = catBackground[indexPath.row]
+        cell.backgroundColor = account.catBackground[indexPath.row]
+        
         if let icon = cell.viewWithTag(100) as? UIImageView{
             icon.image = UIImage.init(named: category.categoryIcons[indexPath.row])
-            icon.tintColor = catTint[indexPath.row]
+            icon.tintColor = account.catTint[indexPath.row]
         }
         if let iconLabel = cell.viewWithTag(200) as? UILabel{
             iconLabel.text = category.categoryIcons[indexPath.row]
-            iconLabel.textColor = catTint[indexPath.row]
+            iconLabel.textColor = account.catTint[indexPath.row]
         }
         return cell
     }
@@ -130,32 +142,33 @@ class AddTransactionViewController: UIViewController, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.row)
         let cell = collectionView.cellForItem(at: indexPath)
-        catBackground[indexPath.row] = #colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)
-        catTint[indexPath.row] = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        cell!.backgroundColor = catBackground[indexPath.row]
+        
+        account.iconColorState(state: "selected", ind: indexPath.row)
+        cell!.backgroundColor = account.catBackground[indexPath.row]
 
         if let icon = cell!.viewWithTag(100) as? UIImageView{
             icon.image = UIImage.init(named: category.categoryIcons[indexPath.row])
-            icon.tintColor = catTint[indexPath.row]
+            icon.tintColor = account.catTint[indexPath.row]
         }
         if let iconLabel = cell?.viewWithTag(200) as? UILabel{
-            iconLabel.textColor = catTint[indexPath.row]
+            iconLabel.textColor = account.catTint[indexPath.row]
 
         }
-        
-        catBackground[indexPath.row] = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        catTint[indexPath.row] = #colorLiteral(red: 0, green: 0.4781872034, blue: 0.482606113, alpha: 1)
+
+        account.iconColorState(state: "released", ind: indexPath.row)
         catInd = indexPath.row
         selectedCat = true
     }
-
+    
+//MARK: - TableViewDelegateFunctions
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return transactionArray.count
+        return account.transactionArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "transaction", for: indexPath)
-        cell.textLabel!.text = "\(transactionArray[indexPath.row][0]): \(transactionArray[indexPath.row][1])"
+        cell.textLabel!.text = account.displayTransaction(ind: indexPath.row)
         return cell
     }
     
