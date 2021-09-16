@@ -204,7 +204,7 @@
         <!--Create Budget-->
         <scene sceneID="3UO-HV-2zY">
             <objects>
-                <viewController id="rsW-5n-QNi" userLabel="Create Budget" customClass="CreateBudgetViewController" customModule="HisabKitab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateBudgetViewController" id="rsW-5n-QNi" userLabel="Create Budget" customClass="CreateBudgetViewController" customModule="HisabKitab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c5y-5z-Wvb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -285,7 +285,7 @@
                                                     <color key="textColor" red="0.1960784314" green="0.47058823529999999" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="entertainment" translatesAutoresizingMaskIntoConstraints="NO" id="Nq1-fb-qrT">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Family" translatesAutoresizingMaskIntoConstraints="NO" id="Nq1-fb-qrT">
                                                     <rect key="frame" x="49" y="8" width="32" height="32"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" button="YES" image="YES"/>
@@ -340,6 +340,7 @@
                         <outlet property="budgetTable" destination="a4B-mM-r7s" id="8ul-Wd-ikz"/>
                         <outlet property="budgetTextField" destination="hhc-h6-6Ig" id="K5K-aH-Fft"/>
                         <outlet property="collectionCategory" destination="Wg1-bI-weR" id="UXG-Fy-hZj"/>
+                        <outlet property="finishButton" destination="jWT-ER-cBd" id="wi2-z4-3oM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H1E-oP-z2b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -412,7 +413,7 @@
         <!--Add Transaction-->
         <scene sceneID="iOq-Sp-nRK">
             <objects>
-                <viewController id="O54-tB-pjB" customClass="AddTransactionViewController" customModule="HisabKitab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTransactionViewController" id="O54-tB-pjB" customClass="AddTransactionViewController" customModule="HisabKitab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EPt-pr-On5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -586,6 +587,7 @@
                     <connections>
                         <outlet property="collectionCategory" destination="il5-ih-wDU" id="Hgp-ub-D77"/>
                         <outlet property="expenseButton" destination="t1a-q6-QqK" id="Cv1-PO-YNB"/>
+                        <outlet property="finishButton" destination="cdI-UX-nUQ" id="mxe-Dd-dgj"/>
                         <outlet property="incomeButton" destination="SgU-i3-xOE" id="9jo-HJ-SHp"/>
                         <outlet property="transactionAmount" destination="XOD-4Z-D84" id="lRv-2t-wOO"/>
                         <outlet property="transactionTable" destination="1z0-4g-39R" id="ZIj-3G-PHr"/>
@@ -730,7 +732,7 @@
         <!--Reminders-->
         <scene sceneID="BNs-Bi-69V">
             <objects>
-                <viewController id="JRk-xG-9EH" customClass="ReminderViewController" customModule="HisabKitab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ReminderViewController" id="JRk-xG-9EH" customClass="ReminderViewController" customModule="HisabKitab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a18-lO-4LT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -810,6 +812,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Reminders" id="iq7-3M-bVq"/>
                     <connections>
+                        <outlet property="addButton" destination="xWv-Iy-g4j" id="fwf-RE-bl6"/>
                         <outlet property="datePicker" destination="2Yp-Tq-pwv" id="l2M-xm-8HS"/>
                         <outlet property="reminderDetails" destination="EbW-Nh-0bD" id="bub-vu-YI7"/>
                         <outlet property="tableView" destination="aTb-wF-2FK" id="GFd-jE-IHO"/>
@@ -822,7 +825,7 @@
         <!--Add Goal-->
         <scene sceneID="TLM-OX-yZe">
             <objects>
-                <viewController id="8CC-qH-hsE" userLabel="Add Goal" customClass="AddGoalViewController" customModule="HisabKitab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddGoalViewController" id="8CC-qH-hsE" userLabel="Add Goal" customClass="AddGoalViewController" customModule="HisabKitab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zfe-qV-lff">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -935,6 +938,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="P7t-6A-2HI"/>
                     <connections>
+                        <outlet property="finishButton" destination="c2y-1F-pHJ" id="YaM-1h-NzO"/>
                         <outlet property="goalAmount" destination="RpE-A6-U1k" id="bwa-To-yS7"/>
                         <outlet property="goalDetails" destination="UMP-dh-mSw" id="AH3-8m-PYA"/>
                         <outlet property="goalDueDate" destination="mTY-F3-LMM" id="2OY-4b-8fb"/>
@@ -1128,11 +1132,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Rfs-2M-tdu"/>
+        <segue reference="mHF-gy-D1a"/>
         <segue reference="b16-d3-qUq"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
+        <image name="Family" width="32" height="32"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
         <image name="entertainment" width="32" height="32"/>

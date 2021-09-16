@@ -17,6 +17,7 @@ class CreateBudgetViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var collectionCategory: UICollectionView!
     @IBOutlet weak var budgetTable: UITableView!
     @IBOutlet weak var budgetTextField: UITextField!
+    @IBOutlet weak var finishButton: UIButton!
     
     override func viewDidLoad()
     {
@@ -50,18 +51,13 @@ class CreateBudgetViewController: UIViewController, UICollectionViewDelegate, UI
         
         if selectedCat && budgetTextField.text! != "" && budgetTextField.text!.isInt
         {
-            var catExist:Bool = false
-            var i = 0
-            while i < budget.budgetArray.count
+            let i = budget.categoryExist(catInd: catInd)
+            if  i != -1
             {
-                if budget.budgetArray[i][0] == category.categoryIcons[catInd]
-                {
-                    catExist = true
-                    budget.addInBudget(ind: i, amount: budgetTextField.text!)
-                }
-                i+=1
+                budget.addInBudget(Ind: i, amount: budgetTextField.text!)
             }
-            if catExist == false
+            
+            else
             {
                 budget.appendInBudget(cat: category.categoryIcons[catInd], amount: budgetTextField.text!)
             }

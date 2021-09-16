@@ -17,11 +17,28 @@ class Budget {
     {
         budgetArray.append([cat , amount])
     }
-    func addInBudget(ind:Int, amount:String)
+    
+    func categoryExist(catInd:Int) ->Int
     {
-        let temp: Int = Int(budgetArray[ind][1])! + Int(amount)!
-        budgetArray[ind][1] = String(temp)
+        var i = 0
+        while i < budgetArray.count
+        {
+            if budgetArray[i][0] == category.categoryIcons[catInd]
+            {
+                print(i)
+                return i
+            }
+            i+=1
+        }
+        return -1
     }
+    
+    func addInBudget(Ind:Int, amount:String)
+    {
+        let temp: Int = Int(budgetArray[Ind][1])! + Int(amount)!
+        budgetArray[Ind][1] = String(temp)
+    }
+    
     func displayBudget(ind:Int) ->String
     {
         return "\(budgetArray[ind][0]): \(budgetArray[ind][1])"

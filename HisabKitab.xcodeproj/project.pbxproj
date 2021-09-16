@@ -8,13 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		1509DCED26F0C1E8000FDE85 /* SavingGoals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509DCEC26F0C1E8000FDE85 /* SavingGoals.swift */; };
-		1509DCF526F1B417000FDE85 /* HisabKitabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509DCF426F1B417000FDE85 /* HisabKitabTests.swift */; };
+		1509DCFD26F20FDC000FDE85 /* BudgetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1509DCFC26F20FDC000FDE85 /* BudgetTests.swift */; };
 		150AAA5626E7898100F552AD /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150AAA5526E7898100F552AD /* Reminder.swift */; };
 		1538539F26EA2C9600969864 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1538539E26EA2C9600969864 /* Budget.swift */; };
 		153853A126EA446500969864 /* CreateBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153853A026EA446500969864 /* CreateBudgetViewController.swift */; };
 		1561F22A26E8860D00A2AA3B /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1561F22926E8860D00A2AA3B /* Account.swift */; };
 		1561F22C26E8891000A2AA3B /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1561F22B26E8891000A2AA3B /* AddTransactionViewController.swift */; };
 		1561F23026E8B7C800A2AA3B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1561F22F26E8B7C800A2AA3B /* Category.swift */; };
+		15622EE026F319E700BE0D14 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15622EDF26F319E700BE0D14 /* AccountTests.swift */; };
+		15622EE226F324DC00BE0D14 /* SavingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15622EE126F324DC00BE0D14 /* SavingTests.swift */; };
+		15622EE426F33FB400BE0D14 /* ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15622EE326F33FB400BE0D14 /* ReminderTests.swift */; };
 		15655B6F26F06F350057AD58 /* SavingGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15655B6E26F06F350057AD58 /* SavingGoalViewController.swift */; };
 		15ED430C26EF772400647744 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ED430B26EF772400647744 /* HomeViewController.swift */; };
 		15ED430E26EFB58900647744 /* SavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ED430D26EFB58900647744 /* SavingsViewController.swift */; };
@@ -40,14 +43,17 @@
 /* Begin PBXFileReference section */
 		1509DCEC26F0C1E8000FDE85 /* SavingGoals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoals.swift; sourceTree = "<group>"; };
 		1509DCF226F1B417000FDE85 /* HisabKitabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HisabKitabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1509DCF426F1B417000FDE85 /* HisabKitabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HisabKitabTests.swift; sourceTree = "<group>"; };
 		1509DCF626F1B417000FDE85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1509DCFC26F20FDC000FDE85 /* BudgetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTests.swift; sourceTree = "<group>"; };
 		150AAA5526E7898100F552AD /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		1538539E26EA2C9600969864 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		153853A026EA446500969864 /* CreateBudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBudgetViewController.swift; sourceTree = "<group>"; };
 		1561F22926E8860D00A2AA3B /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		1561F22B26E8891000A2AA3B /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
 		1561F22F26E8B7C800A2AA3B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		15622EDF26F319E700BE0D14 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
+		15622EE126F324DC00BE0D14 /* SavingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingTests.swift; sourceTree = "<group>"; };
+		15622EE326F33FB400BE0D14 /* ReminderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTests.swift; sourceTree = "<group>"; };
 		15655B6E26F06F350057AD58 /* SavingGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoalViewController.swift; sourceTree = "<group>"; };
 		15ED430B26EF772400647744 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		15ED430D26EFB58900647744 /* SavingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsViewController.swift; sourceTree = "<group>"; };
@@ -83,8 +89,11 @@
 		1509DCF326F1B417000FDE85 /* HisabKitabTests */ = {
 			isa = PBXGroup;
 			children = (
-				1509DCF426F1B417000FDE85 /* HisabKitabTests.swift */,
 				1509DCF626F1B417000FDE85 /* Info.plist */,
+				1509DCFC26F20FDC000FDE85 /* BudgetTests.swift */,
+				15622EDF26F319E700BE0D14 /* AccountTests.swift */,
+				15622EE126F324DC00BE0D14 /* SavingTests.swift */,
+				15622EE326F33FB400BE0D14 /* ReminderTests.swift */,
 			);
 			path = HisabKitabTests;
 			sourceTree = "<group>";
@@ -248,7 +257,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1509DCF526F1B417000FDE85 /* HisabKitabTests.swift in Sources */,
+				1509DCFD26F20FDC000FDE85 /* BudgetTests.swift in Sources */,
+				15622EE026F319E700BE0D14 /* AccountTests.swift in Sources */,
+				15622EE226F324DC00BE0D14 /* SavingTests.swift in Sources */,
+				15622EE426F33FB400BE0D14 /* ReminderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

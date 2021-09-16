@@ -14,6 +14,7 @@ class AddGoalViewController: UIViewController, UITableViewDelegate , UITableView
     @IBOutlet weak var goalAmount: UITextField!
     @IBOutlet weak var goalDueDate: UIDatePicker!
     @IBOutlet weak var goalsTable: UITableView!
+    @IBOutlet weak var finishButton: UIButton!
     var currentIndex = 0
     
     override func viewDidLoad() {

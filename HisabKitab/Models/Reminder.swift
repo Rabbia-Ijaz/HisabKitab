@@ -10,9 +10,10 @@ class Reminders {
     
     var remindersData:[[String]]=[]
     
-    func addNewReminder(text: String, date : String)
+    func addNewReminder(text: String, date : Date)
     {
-        remindersData.append([date,text])
+        let dateConverted = dateConverter(dateInString: date.description)
+        remindersData.append([dateConverted,text])
     }
     
     func dateConverter(dateInString: String) -> String  {

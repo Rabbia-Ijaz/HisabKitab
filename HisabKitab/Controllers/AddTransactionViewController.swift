@@ -19,6 +19,7 @@ class AddTransactionViewController: UIViewController, UICollectionViewDataSource
     @IBOutlet weak var expenseButton: UIButton!
     @IBOutlet weak var transactionAmount: UITextField!
     @IBOutlet weak var collectionCategory: UICollectionView!
+    @IBOutlet weak var finishButton: UIButton!
     @IBOutlet weak var transactionTable: UITableView!
     
     override func viewDidLoad()
@@ -76,6 +77,7 @@ class AddTransactionViewController: UIViewController, UICollectionViewDataSource
             selectedTransType=false
         }
         
+        
     }
     
     @IBAction func finishPressed(_ sender: UIButton)
@@ -83,17 +85,7 @@ class AddTransactionViewController: UIViewController, UICollectionViewDataSource
         
         if selectedCat && selectedTransType && transactionAmount.text! != "" && transactionAmount.text!.isInt
         {
-            if transType == 1 //income
-            {
-                account.transactionArray.append([category.categoryIcons[catInd],transactionAmount.text!])
-                account.addIncome(income: Int(transactionAmount.text!)!)
-                
-            }
-            else if transType == 2 //expense
-            {
-                account.transactionArray.append([category.categoryIcons[catInd],"-\(transactionAmount.text!)"])
-                account.addExpense(expense: Int(transactionAmount.text!)!)
-            }
+            account.addTransaction(transType: transType, cat: category.categoryIcons[catInd], amount: transactionAmount.text!)
             
             collectionCategory.reloadData()
             transactionTable.reloadData()

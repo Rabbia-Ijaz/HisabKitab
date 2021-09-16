@@ -12,7 +12,7 @@ class ReminderViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var reminderDetails: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var addButton: UIButton!
     
     override func viewDidLoad()
     {
@@ -25,7 +25,7 @@ class ReminderViewController: UIViewController, UITableViewDelegate, UITableView
     {
         if reminderDetails.text! != ""
         {
-            reminder.addNewReminder(text: reminderDetails.text!, date: reminder.dateConverter(dateInString: datePicker.date.description))
+            reminder.addNewReminder(text: reminderDetails.text!, date: datePicker.date)
             tableView.reloadData()
             reminderDetails.text = nil
         }

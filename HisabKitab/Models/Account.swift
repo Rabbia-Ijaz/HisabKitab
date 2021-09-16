@@ -18,13 +18,31 @@ class Account {
     func addIncome(income: Int) {
         Balance+=income
     }
+    
     func addExpense(expense: Int) {
         Balance-=expense
     }
+    
     func displayTransaction(ind:Int) -> String
     {
         return "\(transactionArray[ind][0]): \(transactionArray[ind][1])"
     }
+    
+    func addTransaction(transType:Int , cat:String, amount:String)
+    {
+        if transType == 1 //income
+        {
+            transactionArray.append([cat,amount])
+            addIncome(income: Int(amount)!)
+            
+        }
+        else if transType == 2 //expense
+        {
+            transactionArray.append([cat,"-\(amount)"])
+            addExpense(expense: Int(amount)!)
+        }
+    }
+    
     func iconColorState(state: String , ind:Int)
     {
         if state == "selected"
