@@ -41,7 +41,14 @@ class Budget {
     
     func displayBudget(ind:Int) ->String
     {
-        return "\(budgetArray[ind][0]): \(budgetArray[ind][1])"
+        if(budgetArray.count != 0)
+        {
+            return "\(budgetArray[ind][0]): \(budgetArray[ind][1])"
+        }
+        else{
+            return "None"
+        }
+        
     }
     func iconColorState(state: String , ind:Int)
     {

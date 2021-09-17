@@ -27,6 +27,8 @@ class SavingGoalViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var goalProgressTextBox: UITextField!
     @IBOutlet weak var goalProgressTable: UITableView!
     @IBOutlet weak var goalProgressRemaining: UILabel!
+    @IBOutlet weak var finishButton: UIButton!
+    @IBOutlet weak var setGoalAsAchievedButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -17,6 +17,7 @@ class SavingsViewController: UIViewController, UITableViewDelegate , UITableView
     
     @IBOutlet weak var savingsTotalAmountLabel: UILabel!
     @IBOutlet weak var savingsRemainingLabel: UILabel!
+    @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var totalSavingProgressBar: UIProgressView!
     
     @IBOutlet weak var goalsTable: UITableView!

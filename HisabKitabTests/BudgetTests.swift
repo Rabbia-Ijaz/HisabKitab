@@ -17,6 +17,7 @@ class BudgetTests: XCTestCase
     {
         try super.setUpWithError()
         budgetObj = Budget()
+        budget = Budget()
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         sut = storyBoard.instantiateViewController(identifier: "CreateBudgetViewController")
         sut.loadViewIfNeeded()
@@ -122,31 +123,42 @@ class BudgetTests: XCTestCase
         sut.catInd = 1
         sut.selectedCat = true
         sut.finishPressed(sut.finishButton)
-        XCTAssertEqual(budget.displayBudget(ind: 0), "\(category.categoryIcons[sut.catInd]): 500")
+        XCTAssertEqual(budget.budgetArray[0][1] , "500")
         XCTAssertEqual(budget.budgetArray.count, 1)
+        XCTAssertEqual(budget.displayBudget(ind: 0),"Transport: 500")
+        
+        sut.budgetTextField.text = "1500"
+        sut.catInd = 2
+        sut.selectedCat = true
+        sut.finishPressed(sut.finishButton)
+        XCTAssertEqual(budget.budgetArray[1][1] , "1500")
+        XCTAssertEqual(budget.budgetArray.count, 2)
+        XCTAssertEqual(budget.displayBudget(ind: 1),"Travel: 1500")
        
     }
     
-//    func testFinishPressedTrueCaseWithAdd()
-//    {
-//        //if cat exists and budget textfield is not empty
-//
-//        sut.budgetTextField.text = "500"
-//        sut.catInd = 2
-//        sut.selectedCat = true
-//        sut.finishPressed(sut.finishButton)
-//
-//        sut.budgetTextField.text = "1500"
-//        sut.catInd = 2
-//        sut.selectedCat = true
-//        sut.finishPressed(sut.finishButton)
-//
-//        print(budget.budgetArray.count)
-//
-//        XCTAssertEqual(budget.displayBudget(ind: 0), "\(category.categoryIcons[sut.catInd]): 2000")
-//        XCTAssertEqual(budget.budgetArray.count, 1)
-//
-//   }
+    func testFinishPressedTrueCaseWithAdd()
+    {
+        //if cat exists and budget textfield is not empty
+
+        sut.budgetTextField.text = "500"
+        sut.catInd = 2
+        sut.selectedCat = true
+        sut.finishPressed(sut.finishButton)
+
+        sut.budgetTextField.text = "1500"
+        sut.catInd = 2
+        sut.selectedCat = true
+        sut.finishPressed(sut.finishButton)
+
+        print(budget.budgetArray.count)
+
+        XCTAssertEqual(budget.budgetArray[0][1] , "2000")
+        XCTAssertEqual(budget.budgetArray.count, 1)
+        
+        XCTAssertEqual(budget.displayBudget(ind: 0),"Travel: 2000")
+
+   }
 
     func testFinishPressedFalseCaseOne()
     {

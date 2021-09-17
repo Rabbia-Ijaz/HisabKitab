@@ -1,5 +1,5 @@
 //
-//  SavingTests.swift
+//  HomeTests.swift
 //  HisabKitabTests
 //
 //  Created by Rabbia on 17/09/2021.
@@ -8,15 +8,15 @@
 import XCTest
 @testable import HisabKitab
 
-class SavingTests: XCTestCase {
+class HomeTests: XCTestCase {
 
-    var sut: SavingsViewController!
+    var sut: HomeViewController!
     
     override func setUpWithError() throws //like viewDidLoad()
     {
         try super.setUpWithError()
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        sut = storyBoard.instantiateViewController(identifier: "SavingsViewController")
+        sut = storyBoard.instantiateViewController(identifier: "HomeViewController")
         
         sut.loadViewIfNeeded()
     }
@@ -29,24 +29,19 @@ class SavingTests: XCTestCase {
     
 //MARK:- ViewController Tests
     
-    func testVerifySavingsTotalAmountLabel()
+    func testVerifyTransactionTable()
     {
-        XCTAssert((sut.savingsTotalAmountLabel != nil))
+        XCTAssert((sut.transactionTable != nil))
     }
     
-    func testVerifySavingsRemainingLabel()
+    func testVerifyBudgetTable()
     {
-        XCTAssert((sut.savingsRemainingLabel != nil))
+        XCTAssert((sut.budgetTable != nil))
     }
     
-    func testVerifyCreateBtn()
+    func testVerifyremainingBalance()
     {
-        XCTAssert((sut.createButton != nil))
-    }
-    
-    func testVerifySavingProgressBar()
-    {
-        XCTAssert((sut.totalSavingProgressBar != nil))
+        XCTAssert((sut.remainingBalance != nil))
     }
 
 

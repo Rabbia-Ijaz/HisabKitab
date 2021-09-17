@@ -54,7 +54,7 @@
         <!--Home-->
         <scene sceneID="bzo-VI-l3k">
             <objects>
-                <viewController id="uzc-5p-R8J" customClass="HomeViewController" customModule="HisabKitab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="uzc-5p-R8J" customClass="HomeViewController" customModule="HisabKitab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W44-Kn-5bK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -600,7 +600,7 @@
         <!--Savings-->
         <scene sceneID="6Sf-gC-QmR">
             <objects>
-                <viewController id="UYE-fX-AJe" customClass="SavingsViewController" customModule="HisabKitab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SavingsViewController" id="UYE-fX-AJe" customClass="SavingsViewController" customModule="HisabKitab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q8N-je-PwQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -718,6 +718,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Savings" id="fSv-3b-LYx"/>
                     <connections>
+                        <outlet property="createButton" destination="YYX-8H-PmT" id="r4b-QX-zB8"/>
                         <outlet property="goalsTable" destination="aDe-u5-7vy" id="y5t-8b-oM7"/>
                         <outlet property="savingsRemainingLabel" destination="6b8-VI-9YE" id="9RT-dL-WYo"/>
                         <outlet property="savingsTotalAmountLabel" destination="f2A-9I-daj" id="rEB-zz-nRR"/>
@@ -953,7 +954,7 @@
         <!--Saving Goal-->
         <scene sceneID="h9o-6p-vda">
             <objects>
-                <viewController id="nDl-5Q-GGF" userLabel="Saving Goal" customClass="SavingGoalViewController" customModule="HisabKitab" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SavingGoalViewController" id="nDl-5Q-GGF" userLabel="Saving Goal" customClass="SavingGoalViewController" customModule="HisabKitab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RgF-fX-Fyd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1118,12 +1119,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="qbg-5z-SI9"/>
                     <connections>
+                        <outlet property="finishButton" destination="eVk-B7-rkK" id="cVx-pr-P9N"/>
                         <outlet property="goalProgressRemaining" destination="Kve-6F-PiK" id="V4o-CK-7rd"/>
                         <outlet property="goalProgressTable" destination="C8y-Hy-bNv" id="Gb9-au-iWd"/>
                         <outlet property="goalProgressTextBox" destination="biE-Oi-lFh" id="yfY-8T-mHh"/>
                         <outlet property="savingGoalAmount" destination="hIn-LG-Mpj" id="AiN-th-782"/>
                         <outlet property="savingGoalName" destination="cKl-h6-aSj" id="ico-5Z-FVT"/>
                         <outlet property="savingGoalProgressBar" destination="YOR-11-PAD" id="6oN-jr-1xr"/>
+                        <outlet property="setGoalAsAchievedButton" destination="eVk-B7-rkK" id="aWC-94-JQw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4x-aS-AX5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1132,7 +1135,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mHF-gy-D1a"/>
+        <segue reference="Rfs-2M-tdu"/>
         <segue reference="b16-d3-qUq"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

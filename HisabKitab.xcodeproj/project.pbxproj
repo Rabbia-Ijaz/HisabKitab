@@ -16,9 +16,12 @@
 		1561F22C26E8891000A2AA3B /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1561F22B26E8891000A2AA3B /* AddTransactionViewController.swift */; };
 		1561F23026E8B7C800A2AA3B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1561F22F26E8B7C800A2AA3B /* Category.swift */; };
 		15622EE026F319E700BE0D14 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15622EDF26F319E700BE0D14 /* AccountTests.swift */; };
-		15622EE226F324DC00BE0D14 /* SavingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15622EE126F324DC00BE0D14 /* SavingTests.swift */; };
+		15622EE226F324DC00BE0D14 /* AddGoalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15622EE126F324DC00BE0D14 /* AddGoalTests.swift */; };
 		15622EE426F33FB400BE0D14 /* ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15622EE326F33FB400BE0D14 /* ReminderTests.swift */; };
 		15655B6F26F06F350057AD58 /* SavingGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15655B6E26F06F350057AD58 /* SavingGoalViewController.swift */; };
+		156EAE0C26F467AE0011431E /* SavingGoalsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156EAE0B26F467AE0011431E /* SavingGoalsTests.swift */; };
+		156EAE0E26F4896E0011431E /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156EAE0D26F4896E0011431E /* HomeTests.swift */; };
+		156EAE1026F48A500011431E /* SavingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156EAE0F26F48A500011431E /* SavingTests.swift */; };
 		15ED430C26EF772400647744 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ED430B26EF772400647744 /* HomeViewController.swift */; };
 		15ED430E26EFB58900647744 /* SavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ED430D26EFB58900647744 /* SavingsViewController.swift */; };
 		15ED431026EFB5F900647744 /* AddGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ED430F26EFB5F900647744 /* AddGoalViewController.swift */; };
@@ -52,9 +55,12 @@
 		1561F22B26E8891000A2AA3B /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
 		1561F22F26E8B7C800A2AA3B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		15622EDF26F319E700BE0D14 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
-		15622EE126F324DC00BE0D14 /* SavingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingTests.swift; sourceTree = "<group>"; };
+		15622EE126F324DC00BE0D14 /* AddGoalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalTests.swift; sourceTree = "<group>"; };
 		15622EE326F33FB400BE0D14 /* ReminderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTests.swift; sourceTree = "<group>"; };
 		15655B6E26F06F350057AD58 /* SavingGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoalViewController.swift; sourceTree = "<group>"; };
+		156EAE0B26F467AE0011431E /* SavingGoalsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingGoalsTests.swift; sourceTree = "<group>"; };
+		156EAE0D26F4896E0011431E /* HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTests.swift; sourceTree = "<group>"; };
+		156EAE0F26F48A500011431E /* SavingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingTests.swift; sourceTree = "<group>"; };
 		15ED430B26EF772400647744 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		15ED430D26EFB58900647744 /* SavingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsViewController.swift; sourceTree = "<group>"; };
 		15ED430F26EFB5F900647744 /* AddGoalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalViewController.swift; sourceTree = "<group>"; };
@@ -92,8 +98,11 @@
 				1509DCF626F1B417000FDE85 /* Info.plist */,
 				1509DCFC26F20FDC000FDE85 /* BudgetTests.swift */,
 				15622EDF26F319E700BE0D14 /* AccountTests.swift */,
-				15622EE126F324DC00BE0D14 /* SavingTests.swift */,
+				15622EE126F324DC00BE0D14 /* AddGoalTests.swift */,
 				15622EE326F33FB400BE0D14 /* ReminderTests.swift */,
+				156EAE0B26F467AE0011431E /* SavingGoalsTests.swift */,
+				156EAE0D26F4896E0011431E /* HomeTests.swift */,
+				156EAE0F26F48A500011431E /* SavingTests.swift */,
 			);
 			path = HisabKitabTests;
 			sourceTree = "<group>";
@@ -258,8 +267,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1509DCFD26F20FDC000FDE85 /* BudgetTests.swift in Sources */,
+				156EAE0C26F467AE0011431E /* SavingGoalsTests.swift in Sources */,
 				15622EE026F319E700BE0D14 /* AccountTests.swift in Sources */,
-				15622EE226F324DC00BE0D14 /* SavingTests.swift in Sources */,
+				156EAE1026F48A500011431E /* SavingTests.swift in Sources */,
+				15622EE226F324DC00BE0D14 /* AddGoalTests.swift in Sources */,
+				156EAE0E26F4896E0011431E /* HomeTests.swift in Sources */,
 				15622EE426F33FB400BE0D14 /* ReminderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
