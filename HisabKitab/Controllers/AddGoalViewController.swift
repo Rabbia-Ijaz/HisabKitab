@@ -6,16 +6,21 @@
 //
 
 import UIKit
-//var savingArray: [[String]] = []
+protocol PassSavingsDataToSavingGoalDelegate {
+    func passAccountToSavingGoalVC(savingGoal:SavingGoals)
+}
+
 class AddGoalViewController: UIViewController, UITableViewDelegate , UITableViewDataSource{
     
-    
+    var savingGoals = SavingGoals()
+
     @IBOutlet weak var goalDetails: UITextField!
     @IBOutlet weak var goalAmount: UITextField!
     @IBOutlet weak var goalDueDate: UIDatePicker!
     @IBOutlet weak var goalsTable: UITableView!
     @IBOutlet weak var finishButton: UIButton!
     var currentIndex = 0
+    var delegate: PassSavingsDataToSavingGoalDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +57,7 @@ class AddGoalViewController: UIViewController, UITableViewDelegate , UITableView
         {
             savingGoals.addSavingGoal(text: goalDetails.text!, amount: goalAmount.text!, date: goalDueDate.date)
             goalsTable.reloadData()
+            delegate?.passAccountToSavingGoalVC(savingGoal: savingGoals)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "loadSavings"), object: nil)
         }
         else {
@@ -59,6 +65,13 @@ class AddGoalViewController: UIViewController, UITableViewDelegate , UITableView
         }
         goalDetails.text = nil
         goalAmount.text = nil
+        
+    }
+    @IBAction func addButtonPressed(_ sender: Any) {
+        let targetVC = navigationController?.viewControllers.first(where: {$0 is SavingsViewController})
+        if let destVC = targetVC {
+           navigationController?.popToViewController(destVC, animated: true)
+        }
         
     }
     
@@ -70,6 +83,7 @@ class AddGoalViewController: UIViewController, UITableViewDelegate , UITableView
         destView.name = savingGoals.savingArray[currentIndex][0]
         destView.amount = savingGoals.savingArray[currentIndex][1]
         destView.ind = currentIndex
+           destView.savingGoals = savingGoals
         }
     }
 

@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 extension String {
     var isInt: Bool {
         return Int(self) != nil
@@ -17,6 +15,7 @@ extension String {
 
 class SavingGoalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
+    var savingGoals = SavingGoals()
     var name:String = "name"
     var amount:String = "0"
     var ind:Int = 0

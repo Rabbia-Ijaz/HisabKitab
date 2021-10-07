@@ -6,7 +6,10 @@
 //
 
 import UIKit
-var account = Account()
+
+protocol PassAccountDataToHomeDelegate {
+    func passAccountToHomeVC(accnt:Account)
+}
 
 class AddTransactionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource
 {
@@ -14,6 +17,8 @@ class AddTransactionViewController: UIViewController, UICollectionViewDataSource
     var transType = 0
     var selectedCat = false
     var catInd:Int = 0
+    var category = Category()
+    var account = Account()
     
     @IBOutlet weak var incomeButton: UIButton!
     @IBOutlet weak var expenseButton: UIButton!
@@ -21,6 +26,7 @@ class AddTransactionViewController: UIViewController, UICollectionViewDataSource
     @IBOutlet weak var collectionCategory: UICollectionView!
     @IBOutlet weak var finishButton: UIButton!
     @IBOutlet weak var transactionTable: UITableView!
+    var delegate: PassAccountDataToHomeDelegate?
     
     override func viewDidLoad()
     {
@@ -89,6 +95,7 @@ class AddTransactionViewController: UIViewController, UICollectionViewDataSource
             
             collectionCategory.reloadData()
             transactionTable.reloadData()
+            delegate?.passAccountToHomeVC(accnt: account)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         }
         else{
@@ -105,6 +112,13 @@ class AddTransactionViewController: UIViewController, UICollectionViewDataSource
         transType = 0
         selectedCat = false
 
+    }
+    
+    @IBAction func backToHomePressed(_ sender: UIButton) {
+        let targetVC = navigationController?.viewControllers.first(where: {$0 is HomeViewController})
+        if let destVC = targetVC {
+           navigationController?.popToViewController(destVC, animated: true)
+        }
     }
     
 //MARK: - CollectionViewDelegateFunctions

@@ -6,11 +6,10 @@
 //
 
 import UIKit
-var savingGoals = SavingGoals()
 
 class SavingsViewController: UIViewController, UITableViewDelegate , UITableViewDataSource {
     
-    
+    var savingGoals = SavingGoals()
     var currentIndex:Int = 0
     var amount:Int = 0
     var addedAmount:Int = 0
@@ -51,15 +50,16 @@ class SavingsViewController: UIViewController, UITableViewDelegate , UITableView
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-       if segue.identifier == "goToEachGoal"
-       {
-
-        let destView = segue.destination as! SavingGoalViewController
-        destView.name = savingGoals.savingArray[currentIndex][0]
-        destView.amount = savingGoals.savingArray[currentIndex][1]
-        destView.ind = currentIndex
-
-
+       if segue.identifier == "goToEachGoal"{
+            let destView = segue.destination as! SavingGoalViewController
+            destView.name = savingGoals.savingArray[currentIndex][0]
+            destView.amount = savingGoals.savingArray[currentIndex][1]
+            destView.ind = currentIndex
+            destView.savingGoals = savingGoals
+        }
+        if segue.identifier == "goToAddGoal" {
+            let destinationVC = segue.destination as! AddGoalViewController
+            destinationVC.delegate = self
         }
     }
 
@@ -79,6 +79,19 @@ class SavingsViewController: UIViewController, UITableViewDelegate , UITableView
         self.performSegue(withIdentifier: "goToEachGoal", sender: self)
     }
     
-    
-
 }
+
+//MARK: - PassAccountDataToHomeDelegate
+extension SavingsViewController:PassSavingsDataToSavingGoalDelegate {
+    func passAccountToSavingGoalVC(savingGoal: SavingGoals) {
+        print("Booo")
+        for (item , item2) in zip(savingGoal.savingArray,savingGoal.progressArray) {
+            savingGoals.savingArray.append(item)
+            savingGoals.progressArray.append(item2)
+            
+        }
+        
+    }
+    
+}
+    

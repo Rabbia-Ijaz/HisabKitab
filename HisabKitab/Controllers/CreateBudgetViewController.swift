@@ -6,26 +6,38 @@
 //
 
 import UIKit
-var budget = Budget()
-var category = Category()
+var budget2 = Budget()
+
+protocol PassDataToHomeDelegate {
+    func passBudgetToHomeVC(bdgt:Budget)
+}
+
+
 
 class CreateBudgetViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
-    
+ 
     var selectedCat = false
     var catInd:Int = 0
+    var category = Category()
+    var budget2:Budget?
+    var budget = Budget()
     
     @IBOutlet weak var collectionCategory: UICollectionView!
     @IBOutlet weak var budgetTable: UITableView!
     @IBOutlet weak var budgetTextField: UITextField!
     @IBOutlet weak var finishButton: UIButton!
+    var delegate: PassDataToHomeDelegate?
     
     override func viewDidLoad()
+    
     {
+        
         super.viewDidLoad()
         collectionCategory.delegate=self
         collectionCategory.dataSource=self
         budgetTable.delegate=self
         budgetTable.dataSource=self
+        
         
     }
     
@@ -64,7 +76,9 @@ class CreateBudgetViewController: UIViewController, UICollectionViewDelegate, UI
             
             budgetTable.reloadData()
             collectionCategory.reloadData()
+            delegate?.passBudgetToHomeVC(bdgt: budget)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+           
         }
         else{            
             alerts(cat: selectedCat, amount: budgetTextField.text!)
@@ -73,7 +87,13 @@ class CreateBudgetViewController: UIViewController, UICollectionViewDelegate, UI
         selectedCat = false
     }
     
-// MARK: - CollectionViewDelegateFunctions
+    @IBAction func backToHomePressed(_ sender: UIButton) {
+        let targetVC = navigationController?.viewControllers.first(where: {$0 is HomeViewController})
+        if let destVC = targetVC {
+           navigationController?.popToViewController(destVC, animated: true)
+        }
+    }
+    // MARK: - CollectionViewDelegateFunctions
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
@@ -128,3 +148,4 @@ class CreateBudgetViewController: UIViewController, UICollectionViewDelegate, UI
         return cell
     }
 }
+

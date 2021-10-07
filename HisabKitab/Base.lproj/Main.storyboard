@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xg5-a3-Jsl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Xg5-a3-Jsl">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -14,6 +14,7 @@
         <scene sceneID="fjQ-PG-cVv">
             <objects>
                 <tabBarController id="Xg5-a3-Jsl" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="c7F-PP-XuF"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hsa-FR-YfZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -118,7 +119,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.19454621189999999" green="0.47008900190000003" blue="0.47649837389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="transaction" id="VrY-4o-Ldo">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VrY-4o-Ldo" id="9vv-cV-XKd">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
@@ -134,7 +135,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.19454621189999999" green="0.47008900190000003" blue="0.47649837389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="budget" id="bCd-Jq-ujq">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bCd-Jq-ujq" id="1VG-MD-zVR">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
@@ -159,7 +160,26 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="rsW-5n-QNi" kind="show" id="cnS-g5-2ps"/>
+                                    <segue destination="rsW-5n-QNi" kind="show" identifier="homeToCreateBudget" id="jF4-1H-YbM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2t-sN-rtz">
+                                <rect key="frame" x="312" y="288" width="82" height="36"/>
+                                <color key="backgroundColor" red="0.19454621189999999" green="0.47008900190000003" blue="0.47649837389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="eTC-tr-kzC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="O54-tB-pjB" kind="show" identifier="HomeToTransaction" id="05n-8t-QgF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -169,6 +189,7 @@
                             <constraint firstItem="pVY-re-C5t" firstAttribute="top" secondItem="AjR-Ok-bae" secondAttribute="bottom" constant="20" id="0iQ-lK-IeL"/>
                             <constraint firstItem="yKI-lR-Sa6" firstAttribute="leading" secondItem="q3l-q0-adR" secondAttribute="leading" constant="20" id="22u-d8-QWg"/>
                             <constraint firstItem="SDg-VY-XW3" firstAttribute="leading" secondItem="q3l-q0-adR" secondAttribute="leading" constant="20" id="5IV-BG-Vlf"/>
+                            <constraint firstItem="c2t-sN-rtz" firstAttribute="top" secondItem="yKI-lR-Sa6" secondAttribute="bottom" constant="16" id="83D-ZJ-Bfx"/>
                             <constraint firstItem="q3l-q0-adR" firstAttribute="trailing" secondItem="yKI-lR-Sa6" secondAttribute="trailing" constant="20" id="83t-Sd-D1D"/>
                             <constraint firstItem="q3l-q0-adR" firstAttribute="trailing" secondItem="GB4-91-TlE" secondAttribute="trailing" constant="20" id="Cvw-8h-6Ls"/>
                             <constraint firstItem="q3l-q0-adR" firstAttribute="bottom" secondItem="5UO-l4-3kw" secondAttribute="bottom" constant="30" id="Du3-hv-HKo"/>
@@ -185,9 +206,12 @@
                             <constraint firstItem="pVY-re-C5t" firstAttribute="leading" secondItem="q3l-q0-adR" secondAttribute="leading" constant="20" id="eVI-nP-2Uh"/>
                             <constraint firstItem="5UO-l4-3kw" firstAttribute="leading" secondItem="q3l-q0-adR" secondAttribute="leading" constant="20" id="frX-P1-92M"/>
                             <constraint firstItem="q3l-q0-adR" firstAttribute="trailing" secondItem="AjR-Ok-bae" secondAttribute="trailing" constant="20" id="ghR-LQ-SYh"/>
+                            <constraint firstItem="c2t-sN-rtz" firstAttribute="leading" secondItem="SDg-VY-XW3" secondAttribute="trailing" constant="37" id="kr7-FO-1Pg"/>
                             <constraint firstItem="GB4-91-TlE" firstAttribute="top" secondItem="AjR-Ok-bae" secondAttribute="bottom" constant="17" id="nOO-do-JPT"/>
                             <constraint firstItem="q3l-q0-adR" firstAttribute="trailing" secondItem="5UO-l4-3kw" secondAttribute="trailing" constant="20" id="oPq-qj-gRt"/>
                             <constraint firstItem="AjR-Ok-bae" firstAttribute="top" secondItem="SDg-VY-XW3" secondAttribute="bottom" constant="20" id="p7p-gU-KY2"/>
+                            <constraint firstItem="q3l-q0-adR" firstAttribute="trailing" secondItem="c2t-sN-rtz" secondAttribute="trailing" constant="20" id="quX-ga-nGO"/>
+                            <constraint firstItem="AjR-Ok-bae" firstAttribute="top" secondItem="c2t-sN-rtz" secondAttribute="bottom" constant="17" id="vj3-q8-Tk1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="k7o-P4-K2q"/>
@@ -237,7 +261,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.19454621189999999" green="0.47008900190000003" blue="0.47649837389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="budget" id="Lkl-Ix-WdM">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lkl-Ix-WdM" id="CFn-xj-Qez">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
@@ -335,7 +359,18 @@
                             <constraint firstItem="5Bz-03-I9s" firstAttribute="leading" secondItem="hhc-h6-6Ig" secondAttribute="leading" id="yzM-j2-MbU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Create Budget" id="A85-fz-NZn"/>
+                    <navigationItem key="navigationItem" title="Create Budget" id="A85-fz-NZn">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="lxz-bn-jEK">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="4NH-SV-iQ1">
+                                <rect key="frame" x="20" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="&lt; Home"/>
+                                <connections>
+                                    <action selector="backToHomePressed:" destination="rsW-5n-QNi" eventType="touchUpInside" id="q8Z-z2-pxI"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="budgetTable" destination="a4B-mM-r7s" id="8ul-Wd-ikz"/>
                         <outlet property="budgetTextField" destination="hhc-h6-6Ig" id="K5K-aH-Fft"/>
@@ -546,7 +581,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.19454621189999999" green="0.47008900190000003" blue="0.47649837389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="transaction" id="6C4-1Y-Bbj">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6C4-1Y-Bbj" id="5pF-Id-d3v">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
@@ -583,7 +618,20 @@
                             <constraint firstItem="t1a-q6-QqK" firstAttribute="top" secondItem="XOD-4Z-D84" secondAttribute="bottom" constant="20" id="wy7-fU-o8i"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Transaction" id="Hcz-Ks-Iu7"/>
+                    <navigationItem key="navigationItem" title="Add Transaction" id="Hcz-Ks-Iu7">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="khX-hD-5pA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ocN-1V-KFt">
+                                <rect key="frame" x="20" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="&lt; Home">
+                                    <color key="titleColor" red="0.1960784314" green="0.47058823529999999" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToHomePressed:" destination="O54-tB-pjB" eventType="touchUpInside" id="vWk-rc-2DQ"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionCategory" destination="il5-ih-wDU" id="Hgp-ub-D77"/>
                         <outlet property="expenseButton" destination="t1a-q6-QqK" id="Cv1-PO-YNB"/>
@@ -669,7 +717,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.19454621189999999" green="0.47008900190000003" blue="0.47649837389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Kzg-Kq-opd">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kzg-Kq-opd" id="1oY-CG-3PV">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
@@ -691,7 +739,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="8CC-qH-hsE" kind="show" id="dzK-1g-pgI"/>
+                                    <segue destination="8CC-qH-hsE" kind="show" identifier="goToAddGoal" id="dzK-1g-pgI"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -751,7 +799,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.19454621189999999" green="0.47008900190000003" blue="0.47649837389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reminder" id="YCD-zt-Lud">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YCD-zt-Lud" id="sVM-Cq-j4i">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
@@ -867,7 +915,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.19454621189999999" green="0.47008900190000003" blue="0.47649837389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="ODQ-ue-6IR">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ODQ-ue-6IR" id="lSv-1L-Ukk">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
@@ -937,7 +985,19 @@
                             <constraint firstItem="RpE-A6-U1k" firstAttribute="leading" secondItem="18z-Pc-VKp" secondAttribute="leading" constant="20" id="y2H-43-V5X"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="P7t-6A-2HI"/>
+                    <navigationItem key="navigationItem" id="P7t-6A-2HI">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="0KY-cj-nBQ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Ric-Td-1QE">
+                                <rect key="frame" x="20" y="5" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="&lt; Saving"/>
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="8CC-qH-hsE" eventType="touchUpInside" id="cgb-lX-wz2"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="finishButton" destination="c2y-1F-pHJ" id="YaM-1h-NzO"/>
                         <outlet property="goalAmount" destination="RpE-A6-U1k" id="bwa-To-yS7"/>
@@ -978,7 +1038,7 @@
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.19454621189999999" green="0.47008900190000003" blue="0.47649837389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="QwG-gw-BvJ">
-                                        <rect key="frame" x="0.0" y="24.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QwG-gw-BvJ" id="CJh-xu-zFp">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
@@ -1135,10 +1195,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Rfs-2M-tdu"/>
+        <segue reference="mHF-gy-D1a"/>
         <segue reference="b16-d3-qUq"/>
+        <segue reference="2DD-xZ-Set"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="Family" width="32" height="32"/>
         <image name="calendar" catalog="system" width="128" height="106"/>

@@ -6,13 +6,14 @@
 //
 
 import UIKit
-var reminder = Reminders()
+
 class ReminderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
    
     @IBOutlet weak var reminderDetails: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
+    var reminder = Reminders()
     
     override func viewDidLoad()
     {
